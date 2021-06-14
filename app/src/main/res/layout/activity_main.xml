@@ -7,15 +7,50 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
+    //adds the store icon/ moves it to the left of cost of service
+
+    <ImageView
+        android:id="@+id/icon_cost_of_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        app:srcCompat="@drawable/ic_store"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cost_of_service"
+        app:layout_constraintBottom_toBottomOf="@+id/cost_of_service"
+    />
+
     //allows user to enter the tip amount
-    <EditText
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/cost_of_service"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:hint="@string/cost_of_service"
-        android:inputType="numberDecimal"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@id/icon_cost_of_service"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/cost_of_service_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    //adds image of the service bell next to how was your service question
+    <ImageView
+        android:id="@+id/icon_service_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        app:srcCompat="@drawable/ic_service"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/service_question"
+        app:layout_constraintBottom_toBottomOf="@+id/service_question"
+        />
 
     //Give the user an idea of what to put in the cost of service area
     <TextView
@@ -23,8 +58,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/how_was_the_service"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cost_of_service" />
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/cost_of_service"
+        app:layout_constraintTop_toBottomOf="@+id/cost_of_service"
+        />
 
     //adds three buttons to select the tip amount
     <RadioGroup
@@ -33,8 +70,9 @@
         android:layout_height="wrap_content"
         android:checkedButton="@id/option_twenty_percent"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/service_question">
+        app:layout_constraintStart_toStartOf="@+id/service_question"
+        app:layout_constraintTop_toBottomOf="@id/service_question"
+        >
 
         <RadioButton
             android:id="@+id/option_twenty_percent"
@@ -55,15 +93,26 @@
             android:text="@string/okay_15" />
     </RadioGroup>
 
+  <ImageView
+      android:id="@+id/icon_round_up"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:srcCompat="@drawable/ic_round_up"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/round_up_switch"
+      app:layout_constraintBottom_toBottomOf="@+id/round_up_switch"
+      />
+
    //allows to turn on and off the rounding feature
-    <Switch
+    <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/round_up_switch"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:checked="true"
         android:text="@string/round_up_tip"
+        android:layout_marginStart="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/icon_round_up"
         app:layout_constraintTop_toBottomOf="@id/tip_options" />
 
     //allows user to click calculate
@@ -72,9 +121,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/calculate"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/round_up_switch"
         app:layout_constraintTop_toBottomOf="@+id/round_up_switch" />
 
     //shows tip amount
@@ -83,8 +133,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="Tip Amount: $10"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="@id/calculate_button"
-        app:layout_constraintTop_toBottomOf="@id/calculate_button" />
+        app:layout_constraintTop_toBottomOf="@id/calculate_button"
+        />
 
 
 
