@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.tiptime.databinding.ActivityMainBinding
 import java.text.NumberFormat
 
+
 /**
  * Activity that displays a tip calculator.
  */
