@@ -7,6 +7,7 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tiptime.databinding.ActivityMainBinding
+import com.example.tiptime.databinding.ActivityMainBinding.inflate
 import java.text.NumberFormat
 
 
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         // Inflate the layout XML file and return a binding object instance
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = inflate(layoutInflater)
 
         // Set the content view of the Activity to be the root view of the layout
         setContentView(binding.root)
@@ -50,11 +51,13 @@ class MainActivity : AppCompatActivity() {
         // If the cost is null or 0, then display 0 tip and exit this function early.
         if (cost == null || cost == 0.0) {
             displayTip(0.0)
+            displayTotal(0.0)
             return
         }
 
         // Get the tip percentage based on which radio button is selected
         val tipPercentage = when (binding.tipOptions.checkedRadioButtonId) {
+            R.id.option_thirty_percent -> 0.30
             R.id.option_twenty_percent -> 0.20
             R.id.option_eighteen_percent -> 0.18
             else -> 0.15
@@ -74,7 +77,11 @@ class MainActivity : AppCompatActivity() {
 
         // Display the formatted tip value onscreen
         displayTip(tip)
+        val total = (tip + cost)
+        displayTotal(total)
     }
+
+
 
     /**
      * Format the tip amount according to the local currency and display it onscreen.
@@ -83,6 +90,10 @@ class MainActivity : AppCompatActivity() {
     private fun displayTip(tip: Double) {
         val formattedTip = NumberFormat.getCurrencyInstance().format(tip)
         binding.tipResult.text = getString(R.string.tip_amount, formattedTip)
+    }
+    private fun displayTotal(total: Double) {
+        val formattedTotal = NumberFormat.getCurrencyInstance().format(total)
+        binding.grandTotal.text = getString(R.string.grand_total, formattedTotal)
     }
 
     /**
