@@ -10,4 +10,7 @@
     <string name="grand_total">Grand Total: %s</string>
     <string name="tip_amount">Tip Amount: %s</string>
     <string name="round_up_tip">Round up tip?</string>
+    <string name="wanted_total">Wanted Total</string>
+    <string name="tab_1">Calculate Tip</string>
+    <string name="tab_2">Tip From Total</string>
 </resources>

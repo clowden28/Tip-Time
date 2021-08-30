@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/clowden/AndroidStudioProjects/TipTime/app/src/main/res/drawable/ic_calculate_tip.xml" value="0.3828125" />
         <entry key="..\:/Users/clowden/AndroidStudioProjects/TipTime/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/clowden/AndroidStudioProjects/TipTime/app/src/main/res/layout/activity_second.xml" value="0.24728260869565216" />
+        <entry key="..\:/Users/clowden/AndroidStudioProjects/TipTime/app/src/main/res/layout/activity_second.xml" value="0.33" />
+        <entry key="..\:/Users/clowden/AndroidStudioProjects/TipTime/app/src/main/res/layout/screen_layout.xml" value="0.24728260869565216" />
+        <entry key="..\:/Users/clowden/AndroidStudioProjects/TipTime/app/src/main/res/layout/tab_setup.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

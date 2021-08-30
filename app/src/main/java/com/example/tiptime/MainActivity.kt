@@ -38,7 +38,9 @@ class MainActivity : AppCompatActivity() {
                 keyCode
             )
         }
+
     }
+
 
     /**
      * Calculates the tip based on the user input.
@@ -79,6 +81,7 @@ class MainActivity : AppCompatActivity() {
         displayTip(tip)
         val total = (tip + cost)
         displayTotal(total)
+
     }
 
 
